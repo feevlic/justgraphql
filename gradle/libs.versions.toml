@@ -1,6 +1,6 @@
 [versions]
 agp = "8.13.1"
-apolloRuntime = "3.7.3"
+apolloRuntime = "3.8.6"
 kotlin = "2.2.0"
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -17,8 +17,8 @@ kotlinxCoroutinesAndroid = "1.10.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-apollo-ksp = { module = "com.apollograpghql.apollo3:apollo-ksp", version.ref = "apolloRuntime" }
-apollo-runtime = { module = "com.apollograpghql.apollo3:apollo-runtime", version.ref = "apolloRuntime" }
+apollo-ksp = { module = "com.apollographql.apollo3:apollo-ksp", version.ref = "apolloRuntime" }
+apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apolloRuntime" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -40,5 +40,6 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+apollo = { id = "com.apollographql.apollo3", version.ref = "apolloRuntime" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
