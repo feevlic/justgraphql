@@ -2,8 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.apollographql.apollo3").version("3.7.3")
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+}
+
+apollo {
+    service("service") {
+        packageName.set("com.feevlic")
+    }
 }
 
 android {
@@ -35,8 +42,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
