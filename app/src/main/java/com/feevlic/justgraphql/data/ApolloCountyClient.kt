@@ -1,16 +1,14 @@
 package com.feevlic.justgraphql.data
 
-import com.feevlic.justgraphql.domain.CountryClient
-import com.feevlic.justgraphql.domain.DetailedCountry
+
 import com.apollographql.apollo3.ApolloClient
 import com.feevlic.CountriesQuery
 import com.feevlic.CountryQuery
-import com.feevlic.justgraphql.data.toSimpleCountry
-
-
+import com.feevlic.justgraphql.domain.CountryClient
+import com.feevlic.justgraphql.domain.DetailedCountry
 import com.feevlic.justgraphql.domain.SimpleCountry
 
-class ApolloCountyClient (private val apolloClient: ApolloClient): CountryClient {
+class ApolloCountyClient(private val apolloClient: ApolloClient) : CountryClient {
     override suspend fun getCountries(): List<SimpleCountry> {
         return apolloClient
             .query(CountriesQuery())
