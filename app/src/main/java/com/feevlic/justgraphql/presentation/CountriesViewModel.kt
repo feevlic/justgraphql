@@ -48,6 +48,14 @@ class CountriesViewModel @Inject constructor(
         }
     }
 
+    fun dismissCountryDialog() {
+        _state.update {
+            it.copy(
+                selectedCountry = null
+            )
+        }
+    }
+
     data class CountriesState(
         val countries: List<SimpleCountry> = emptyList(),
         val isLoading: Boolean = false,

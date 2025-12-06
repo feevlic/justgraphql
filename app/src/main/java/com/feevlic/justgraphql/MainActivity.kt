@@ -24,7 +24,8 @@ class MainActivity : ComponentActivity() {
                 CountriesScreen(
                     state = state,
                     onSelectCountry = viewmodel::selectCountry,
-                    onDismissCountryDialog = {})
+                    onDismissCountryDialog = viewmodel::dismissCountryDialog
+                )
             }
         }
     }
