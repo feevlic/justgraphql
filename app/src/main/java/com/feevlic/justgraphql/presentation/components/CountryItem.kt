@@ -18,12 +18,18 @@ fun CountryItem(
     country: SimpleCountry,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-        Text(text = country.emoji, fontSize = 30.sp)
-
-        Spacer(modifier = modifier.width(16.dp))
-
-        Column(modifier = Modifier.weight(1f)) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = country.emoji,
+            fontSize = 30.sp
+        )
+        Spacer(modifier = Modifier.width(16.dp))
+        Column(
+            modifier = Modifier.weight(1f)
+        ) {
             Text(
                 text = country.name,
                 fontSize = 24.sp

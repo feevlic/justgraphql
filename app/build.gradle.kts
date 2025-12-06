@@ -68,7 +68,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.apollo.runtime)
-    ksp(libs.apollo.ksp)
 
     implementation(libs.kotlinx.coroutines.android)
     ksp(libs.hilt.android.compiler)
