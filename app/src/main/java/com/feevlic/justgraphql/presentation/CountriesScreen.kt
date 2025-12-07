@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,15 +32,24 @@ fun CountriesScreen(
                 modifier = Modifier.align(Alignment.Center)
             )
         } else {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(state.countries) { country ->
-                    CountryItem(
-                        country = country,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onSelectCountry(country.code) }
-                            .padding(16.dp)
-                    )
+            if (state.countries.isEmpty()) {
+                Text(
+                    text = "You are offline please turn on the network",
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(16.dp),
+                )
+            } else {
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    items(state.countries) { country ->
+                        CountryItem(
+                            country = country,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { onSelectCountry(country.code) }
+                                .padding(16.dp)
+                        )
+                    }
                 }
             }
 
