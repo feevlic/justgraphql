@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
-class AndroidConnectivityObserver @Inject constructor( @ApplicationContext private val context: Context) :
+class AndroidConnectivityObserver @Inject constructor(@ApplicationContext private val context: Context) :
     ConnectivityObserver {
 
     private val connectivityManager = context.getSystemService<ConnectivityManager>()!!

@@ -17,4 +17,7 @@ abstract class ConnectivityModule {
     abstract fun bindConnectivityObserver(
         androidConnectivityObserver: AndroidConnectivityObserver
     ): ConnectivityObserver
+
 }
+
+
