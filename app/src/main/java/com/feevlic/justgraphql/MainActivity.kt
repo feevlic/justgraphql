@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
             JustgraphqlTheme {
                 val countriesViewmodel = hiltViewModel<CountriesViewModel>()
                 val countriesState by countriesViewmodel.state.collectAsState()
+
                 val connectivityViewmodel = hiltViewModel<ConnectivityViewModel>()
 
                 val snackBarHostState = remember { SnackbarHostState() }
@@ -56,7 +57,6 @@ class MainActivity : ComponentActivity() {
                             onSelectCountry = countriesViewmodel::selectCountry,
                             onDismissCountryDialog = countriesViewmodel::dismissCountryDialog
                         )
-                        // You can also show a persistent banner using `connectivityState` if desired.
                     }
                 }
             }
