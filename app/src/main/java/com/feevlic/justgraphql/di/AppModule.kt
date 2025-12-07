@@ -2,9 +2,11 @@ package com.feevlic.justgraphql.di
 
 import com.apollographql.apollo3.ApolloClient
 import com.feevlic.justgraphql.data.ApolloCountyClient
+import com.feevlic.justgraphql.domain.ConnectivityObserver
 import com.feevlic.justgraphql.domain.CountryClient
 import com.feevlic.justgraphql.domain.GetCountriesUseCase
 import com.feevlic.justgraphql.domain.GetCountryUseCase
+import com.feevlic.justgraphql.domain.ObserveConnectivityUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,5 +41,11 @@ object AppModule {
     @Singleton
     fun provideGetCountryUseCase(countryClient: CountryClient): GetCountryUseCase {
         return GetCountryUseCase(countryClient)
+    }
+
+    @Provides
+    @Singleton
+    fun provideConnectivityUseCase(observer: ConnectivityObserver): ObserveConnectivityUseCase {
+        return ObserveConnectivityUseCase(observer)
     }
 }
