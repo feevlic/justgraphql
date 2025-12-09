@@ -16,14 +16,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.lifecycleScope
+import com.feevlic.justgraphql.data.sync.ConnectivitySyncCoordinator
 import com.feevlic.justgraphql.presentation.ConnectivityViewModel
 import com.feevlic.justgraphql.presentation.CountriesScreen
 import com.feevlic.justgraphql.presentation.CountriesViewModel
 import com.feevlic.justgraphql.ui.theme.JustgraphqlTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var connectivitySyncCoordinator: ConnectivitySyncCoordinator
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,6 +66,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        connectivitySyncCoordinator.start(lifecycleScope)
     }
 }
 
