@@ -1,0 +1,7 @@
+appId: com.feevlic.justgraphql
+tags:
+  - android
+  - passing
+---
+- assertVisible: "Albania"
+- tapOn: "Albania"

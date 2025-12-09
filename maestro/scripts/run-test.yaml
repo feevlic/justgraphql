@@ -1,0 +1,8 @@
+appId: com.feevlic.justgraphql
+tags:
+  - android
+  - passing
+---
+- launchApp:
+    clearState: true
+- runFlow: "onboarding/main.yml"
