@@ -14,3 +14,17 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+/fastlane/.env
+/fastlane/*.json
+/fastlane/fastlane.log
+/fastlane/report.xml
+/fastlane/credentials.json
+
+
+**/*.jks
+**/*.keystore
+**/*.keystore.properties
+
+.env
+.env.*.local
