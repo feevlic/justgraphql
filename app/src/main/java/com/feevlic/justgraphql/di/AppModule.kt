@@ -30,10 +30,10 @@ object AppModule {
             .serverUrl("https://countries.trevorblades.com/graphql")
             .build()
     }
-
+    
     @Provides
     @Singleton
-    fun provideCountryClient(apolloClient: ApolloClient): CountryClient {
+    fun provideApolloCountyClient(apolloClient: ApolloClient): ApolloCountyClient {
         return ApolloCountyClient(apolloClient)
     }
 
@@ -44,19 +44,18 @@ object AppModule {
             context,
             CountryDatabase::class.java,
             "countries.db"
-        ).fallbackToDestructiveMigration(false).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides
     @Singleton
-    fun provideCountryClient(apolloClient: ApolloCountyClient, db: CountryDatabase): CountryClient {
-        return RoomCountryClient(remote = apolloClient, dao = db.countryDao())
-    }
-
-    @Provides
-    @Singleton
-    fun provideGetCountriesUseCase(countryClient: CountryClient): GetCountriesUseCase {
-        return GetCountriesUseCase(countryClient)
+    fun provideCountryClient(
+        apolloCountyClient: ApolloCountyClient,
+        db: CountryDatabase
+    ): CountryClient {
+        return RoomCountryClient(remote = apolloCountyClient, dao = db.countryDao())
     }
 
     @Provides
@@ -66,6 +65,12 @@ object AppModule {
         db: CountryDatabase
     ): SyncManager {
         return SyncManager(apolloCountyClient, db.countryDao())
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetCountriesUseCase(countryClient: CountryClient): GetCountriesUseCase {
+        return GetCountriesUseCase(countryClient)
     }
 
     @Provides
