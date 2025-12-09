@@ -2,7 +2,7 @@ default_platform(:android)
 
 platform :android do
     desc "Assemble debug and install on connected device/emulator"
-    lane :install_debug: do
+    lane :install_debug do
         gradle(task: "clean")
         gradle(task: "assembleDebug")
         gradle(task: "installDebug")
@@ -13,3 +13,4 @@ platform :android do
         gradle(task: "clean")
         gradle(task: "assembleDebug")
     end
+end
